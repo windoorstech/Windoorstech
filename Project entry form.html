@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Project Entry Form</title>
+</head>
+<body>
+    <div class="container">
+        <div style="text-align:center">
+          <h2>WindoorsTech Project Details Entry Form</h2>
+          <p>Swing by for a cup of coffee, or feed a project details <img src="smily.jpg" style="width:5%"></p>
+        </div>
+        <div class="row">
+          
+          <div class="column">
+            <form id="gform" action="">
+              <label for="pname">Project Name</label>
+              <input type="text" id="pname" name="Project Name" placeholder="Project name.." required>
+              <label for="lname">Location</label>
+              <input type="text" id="lname" name="Location" placeholder="Enter Location.." required>
+              <label for="cname">Client Name</label>
+              <input type="text" id="lname" name="Client Name" placeholder="Enter client name.." required>
+              <label for="sname">Sales Person</label>
+              <input type="text" id="sname" name="Sales Person" placeholder="Enter sales person name.." required>
+              <label for="aname">Area in SFT</label>
+              <input type="text" id="aname" name="Area in SFT" placeholder="Enter area.." required>
+              <label for="qname">Window Quantity</label>
+              <input type="text" id="qname" name="Window Quantity" placeholder="Enter window quantity.." required>
+              <label for="remarks">Remarks</label>
+              <textarea id="subject" name="Remarks" placeholder="Write something if there any remarks.." style="height:170px"></textarea>
+              
+              <input type="submit" value="Submit">
+              
+            </form>
+            <p></p>
+            <button onclick="myFunction()">Home</button>
+
+<script>
+function myFunction() {
+  location.replace("index.html")
+}
+</script>
+          </div>
+          <div class="column">
+            <img src="windoorstech.png" style="width:100%">
+          </div>
+        </div>
+      </div>
+      <script>
+        $("#gform").submit((e)=>{
+            e.preventDefault()
+            $.ajax({
+                url:"https://script.google.com/macros/s/AKfycby7JA_uzPw_QpeeNiIkGgPgon-4PzmPreBOcL1gLg/exec",
+                data:$("#gform").serialize(),
+                method:"post",
+                success:function (response){                    
+                    alert("Form submitted successfully")
+                    window.location.reload()
+                    //window.location.href="https://google.com"
+                },
+                error:function (err){
+                    alert("Something Error")
+    
+                }
+            })
+        })
+    </script>
+</body>
+</html>
